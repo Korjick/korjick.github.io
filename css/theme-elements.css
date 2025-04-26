@@ -2,7 +2,7 @@
 /*
 Name: 			theme-elements.css
 Written by: 	Okler Themes - (http://www.okler.net)
-Theme Version:	12.0.0
+Theme Version:	12.1.0
 */
 /* Accordion */
 .accordion .card {
@@ -8985,7 +8985,9 @@ label.required:after {
 }
 
 .form-control-icon.is-invalid,
-.was-validated .form-control-icon:invalid {
+.was-validated .form-control-icon:invalid,
+.form-control.is-valid:focus,
+.was-validated .form-control:valid:focus {
 	background-image: none !important;
 }
 

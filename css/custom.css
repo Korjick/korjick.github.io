@@ -1,0 +1,65 @@
+h3 {
+    font-size: 1.1em;
+    font-weight: 500;
+    letter-spacing: 0;
+    color: var(--dark-100);
+    padding-left: 90px;
+    position: relative;
+}
+
+h3:before {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 1px;
+    top: 50%;
+    left: 0;
+    display: block;
+    background-color: var(--dark-100);
+}
+
+h3.short {
+    padding-left: 50px;
+}
+
+h3.short:before {
+    width: 40px;
+}
+
+#nav-container button {
+    border: none;
+    background-color: transparent;
+    color: transparent;
+    font-size: 0;
+
+    width: 40px;
+    height: 40px;
+    padding: 0;
+
+    background-image: url('/svg/arrow-dark.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+    margin: 0 5px;
+}
+
+#nav-container button.owl-prev {
+    transform: rotate(180deg);
+}
+
+#nav-container button:hover {
+    background-color: #eee;
+    border-color: #bbb;
+}
+
+/* === Стили для отключенных кнопок === */
+#nav-container button.disabled {
+    opacity: 0.4;
+    cursor: default;
+    background-color: #f8f8f8;
+    border-color: #ccc;
+}

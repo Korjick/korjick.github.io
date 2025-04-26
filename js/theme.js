@@ -1,7 +1,7 @@
 /*
 Name: 			Theme Base
 Written by: 	Okler Themes - (http://www.okler.net)
-Theme Version:	12.0.0
+Theme Version:	12.1.0
 */
 
 // Theme
@@ -249,8 +249,12 @@ window.theme.fn = {
 
 	showErrorMessage(title, content) {
 
+		if ($('html').hasClass('disable-local-warning')) {
+			return;
+		}
+
 		$('.modalThemeErrorMessage').remove();
-		$('body').append('<div class="modal fade" id="modalThemeErrorMessage" aria-hidden="true" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">' + title + '</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body">' + content + '</div><div class="modal-footer"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button></div></div></div></div>');
+		$('body').append('<div class="modal fade" id="modalThemeErrorMessage"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">' + title + '</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body">' + content + '</div><div class="modal-footer"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button></div></div></div></div>');
 
 		var modalThemeErrorMessage = document.getElementById('modalThemeErrorMessage');
 		var modalThemeErrorMessage = bootstrap.Modal.getOrCreateInstance(modalThemeErrorMessage);
@@ -268,7 +272,7 @@ window.theme.fn = {
 		if ("file://" === location.origin) {
 			if ($('[data-icon]').length || $('iframe').length) {
 
-				theme.fn.showErrorMessage('Local Environment Warning', 'SVG Objects, Icons, YouTube and Vimeo Videos might not show correctly on local environment. For better result, please preview on a server.');
+				theme.fn.showErrorMessage('Local Environment Warning', 'SVG Objects, Icons, YouTube and Vimeo Videos might not show correctly on local environment. For better result, please preview on a server.<br><br><a target="_blank" href="https://www.okler.net/forums/topic/how-to-disable-local-environment-warning/" class="fw-semibold"><i class="fa-solid fa-link"></i> How to Disable Local Environment Warning</a>');
 
 			}
 		}
@@ -331,6 +335,42 @@ window.theme.fn = {
 		// iPad/Iphone/iPod Hover Workaround
 		$(document).ready($ => {
 			$('.thumb-info').attr('onclick', 'return true');
+		});
+	}
+
+	/*
+	Lazy Load Bacground Images
+	*/
+
+	// Check for IntersectionObserver support
+	if ('IntersectionObserver' in window) {
+		document.addEventListener("DOMContentLoaded", function() {
+
+			function handleIntersection(entries) {
+				entries.map((entry) => {
+					if (entry.isIntersecting) {
+						// Item has crossed our observation
+						// threshold - load src from data-src
+						entry.target.style.backgroundImage = "url('" + entry.target.dataset.bgSrc + "')";
+						// Job done for this item - no need to watch it!
+						observer.unobserve(entry.target);
+					}
+				});
+			}
+
+			const lazyLoadElements = document.querySelectorAll('.lazyload');
+			const observer = new IntersectionObserver(
+				handleIntersection, {
+					rootMargin: "100px"
+				}
+			);
+			lazyLoadElements.forEach(lazyLoadEl => observer.observe(lazyLoadEl));
+		});
+	} else {
+		// No interaction support? Load all background images automatically
+		const lazyLoadElements = document.querySelectorAll('.lazyload');
+		lazyLoadElements.forEach(lazyLoadEl => {
+			lazyLoadEl.style.backgroundImage = "url('" + lazyLoadEl.dataset.bgSrc + "')";
 		});
 	}
 
@@ -950,16 +990,6 @@ window.theme.fn = {
 			});
 		});
 	}
-
-	/*
-	* Lazy Load Background Images (with lazySizes plugin)
-	*/
-	document.addEventListener('lazybeforeunveil', ({target}) => {
-		const bg = target.getAttribute('data-bg-src');
-		if(bg) {
-			target.style.backgroundImage = 'url(' + bg + ')';
-		}
-	});
 
 	/*
 	* Title Border
@@ -1779,7 +1809,7 @@ window.theme.fn = {
 			const self = this, $owlDot = self.$el.find('.owl-dot');
 
 			$owlDot.on('click', function(e){
-				$this = $(this);
+				let $this = $(this);
 
 				e.preventDefault();
 
@@ -7389,7 +7419,7 @@ window.theme.fn = {
             const self = this;
             const $window = $(window);
             const $logo = self.options.wrapper.find('img');
-            const classToCheck = ( self.options.wrapper.hasClass('sticky-wrapper-effect-1') ) ? 'sticky-effect-active' : 'sticky-active';
+			const classToCheck = ( self.options.wrapper.hasClass('sticky-wrapper-effect-1') ) ? 'sticky-effect-active' : 'sticky-active';
             let stickyActivateFlag = true;
             let stickyDeactivateFlag = false;
 
