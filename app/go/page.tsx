@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { ResumeView } from "../resume-view";
 
-const title = "Bulat Din — Go Backend Developer";
-const description = "Experience, selected work and a printable Go résumé.";
+const title = "Bulat Fakhrutdinov — Go Backend Developer";
+const description = "Experience, selected work and a printable Go Backend résumé.";
 export const metadata: Metadata = {
   title, description,
   alternates: { canonical: "/go/" },

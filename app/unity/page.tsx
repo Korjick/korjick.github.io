@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ResumeView } from "../resume-view";
 
-const title = "Bulat Din — Unity Developer";
+const title = "Bulat Fakhrutdinov — Unity Developer";
 const description = "Experience, shipped projects and a printable Unity résumé.";
 export const metadata: Metadata = {
   title, description,
