@@ -30,9 +30,9 @@ body { isolation: isolate; }
 .profile-switcher { display: flex; flex-direction: column; align-items: center; gap: 13px; padding: 20px 20px 0; }
 .profile-switcher-label { color: #8e9087; font-size: 8px; letter-spacing: 2px; }
 .profile-options { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); width: 100%; max-width: 800px; padding: 5px; border: 1px solid #42463f; border-radius: 5px; background: #121512df; }
-.profile-options a { display: flex; align-items: center; justify-content: center; gap: 9px; font-size: 11px; color: #b0b5a9; padding: 13px 22px; border-radius: 2px; transition: background .2s, color .2s; }
+.profile-options a { display: flex; align-items: center; justify-content: center; gap: 9px; font-size: 11px; color: #b0b5a9; padding: 13px 22px; border-radius: 2px; box-shadow: inset 0 0 0 1px #ffffff30; transition: background .2s, color .2s; }
 .profile-options a:hover { color: white; background: #252b24; }
-.profile-options a[aria-current="page"] { color: var(--on-accent); background: var(--accent); box-shadow: inset 0 0 0 1px #ffffff30; }
+.profile-options a[aria-current="page"] { color: var(--on-accent); background: var(--accent); }
 .profile-option-icon { width: 22px; height: 22px; flex-shrink: 0; object-fit: contain; filter: brightness(0) invert(1); opacity: .85; }
 .resume-page:not([data-profile="unity"]) .profile-options a[aria-current="page"] .profile-option-icon { filter: brightness(0); }
 .desk { position: relative; padding: 100px 28px 40px; overflow-x: clip; }

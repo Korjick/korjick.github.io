@@ -102,7 +102,7 @@ export const commonExperience: { tuDresden: Experience; samsungKfu: Experience }
 
 export const profiles: Record<ProfileId, Profile> = {
   go: {
-    label: "Go developer",
+    label: "Go Developer",
     href: "/go/",
     icon: "golang",
     accent: "#00AED9",
@@ -169,11 +169,11 @@ export const profiles: Record<ProfileId, Profile> = {
     ]
   },
   python: {
-    label: "Python developer",
+    label: "Python Developer",
     href: "/python/",
     icon: "python",
     accent: "#FFCD40",
-    title: "PYTHON & BACKEND",
+    title: "PYTHON BACKEND",
     edition: "PYTHON / BACKEND",
     intro: "I build robust, high-throughput systems that power the",
     emphasis: "Python backend",
@@ -249,11 +249,11 @@ export const profiles: Record<ProfileId, Profile> = {
     ]
   },
   java: {
-    label: "Java developer",
+    label: "Java Developer",
     href: "/java/",
     icon: "java",
     accent: "#F58219",
-    title: "JAVA & BACKEND",
+    title: "JAVA BACKEND",
     edition: "JAVA / BACKEND",
     intro: "I build robust, high-throughput systems that power the",
     emphasis: "Java backend",
@@ -313,7 +313,7 @@ export const profiles: Record<ProfileId, Profile> = {
     ]
   },
   unity: {
-    label: "Unity developer",
+    label: "Unity Developer",
     href: "/unity/",
     icon: "unity",
     accent: "#110B09",

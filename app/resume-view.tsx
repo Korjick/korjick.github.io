@@ -24,7 +24,7 @@ export function ResumeView({ profileId }: { profileId: ProfileId }) {
       <SonarGrid accent={profile.accent} />
       <a className="skip-link" href="#about">Skip to résumé</a>
       <header className="site-header">
-        <a className="wordmark" href="#top" aria-label="Bulat Din, back to top">bd<span className="wordmark-dot">.</span></a>
+        <a className="wordmark" href="#top" aria-label="Bulat Fakhrutdinov, back to top">bd<span className="wordmark-dot">.</span></a>
         <span className="header-caption">A LITTLE ABOUT ME, ON PAPER.</span>
         <PrintButton className="header-print" />
       </header>
@@ -74,7 +74,7 @@ export function ResumeView({ profileId }: { profileId: ProfileId }) {
               <footer className="receipt-footer">
                 <div className="asterisk-rule" aria-hidden="true">******************************************************</div><span className="handwritten footer-note">your next developer?</span><h2>GOOD THINGS START<br />WITH A CONVERSATION.</h2><ContactOptions />
                 <nav className="social-links" aria-label="Find me online"><a href="https://github.com/Korjick" target="_blank" rel="noreferrer">GitHub <Arrow /></a><a href="https://www.linkedin.com/in/korjick/" target="_blank" rel="noreferrer">LinkedIn <Arrow /></a><a href="https://t.me/korjick" target="_blank" rel="noreferrer">Telegram <Arrow /></a><a href="https://korjick.artstation.com/" target="_blank" rel="noreferrer">ArtStation <Arrow /></a></nav>
-                <div className="asterisk-rule bottom-rule" aria-hidden="true">******************************************************</div><div className="receipt-signoff"><span>THANK YOU FOR YOUR TIME</span><span>END OF RECEIPT :)</span></div><div className="barcode" aria-hidden="true" /><span className="barcode-caption">B U L A T · D I N · D E V E L O P E R</span>
+                <div className="asterisk-rule bottom-rule" aria-hidden="true">******************************************************</div><div className="receipt-signoff"><span>THANK YOU FOR YOUR TIME</span><span>END OF RECEIPT :)</span></div><div className="barcode" aria-hidden="true" /><span className="barcode-caption">B U L A T · F A K H R U T D I N O V · D E V E L O P E R</span>
               </footer>
             </div>
           </article>
